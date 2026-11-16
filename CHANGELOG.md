@@ -2,6 +2,10 @@
 
 Mudanças de cada versão publicada do Scroll Stopper. A versão fica só em `.claude-plugin/plugin.json`.
 
+## 0.1.1 — 2026-11-16
+
+- README: o caminho de atualização foi conferido instalando a 0.1.0 e atualizando para esta versão.
+
 ## 0.1.0 — 2026-11-12
 
 Primeira versão.

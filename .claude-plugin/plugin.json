@@ -1,10 +1,18 @@
 {
   "name": "scroll-stopper",
   "description": "Cria vídeos verticais para anúncios e redes sociais por três caminhos: apresentador falando, anúncio em motion com narração e cortes de vídeos longos.",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "author": {
     "name": "Safira Mendes"
   },
   "license": "AGPL-3.0",
-  "keywords": ["video", "ads", "motion", "reels", "shorts", "remotion", "portuguese"]
+  "keywords": [
+    "video",
+    "ads",
+    "motion",
+    "reels",
+    "shorts",
+    "remotion",
+    "portuguese"
+  ]
 }

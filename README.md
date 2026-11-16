@@ -44,7 +44,7 @@ Depois disso, cada projeto ocupa só os arquivos dele no cache; o vídeo final �
 
 ## Atualizações
 
-> A forma de atualizar abaixo segue a documentação do Claude Code ([marketplaces](https://code.claude.com/docs/en/plugin-marketplaces) e [instalar e gerenciar plugins](https://code.claude.com/docs/en/discover-plugins)) e será conferida na prática depois da publicação.
+> A forma de atualizar abaixo segue a documentação do Claude Code ([marketplaces](https://code.claude.com/docs/en/plugin-marketplaces) e [instalar e gerenciar plugins](https://code.claude.com/docs/en/discover-plugins)) e foi conferida na prática na publicação da 0.1.1.
 
 Cada versão nova sobe o número em `.claude-plugin/plugin.json` e ganha uma entrada no [CHANGELOG.md](CHANGELOG.md). Em marketplaces de terceiros, como este, a atualização automática vem desligada. Você pode:
 
