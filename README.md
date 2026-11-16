@@ -50,7 +50,12 @@ Cada versão nova sobe o número em `.claude-plugin/plugin.json` e ganha uma ent
 
 - ligar a atualização automática: `/plugin` → aba **Marketplaces** → `scroll-stopper` → **Enable auto-update**;
 - atualizar na hora, numa sessão: `/plugin` → aba **Installed** → `scroll-stopper` → **Update now** (o comando `/plugin marketplace update scroll-stopper` só atualiza a lista do marketplace);
-- ou, no terminal: `claude plugin update scroll-stopper@scroll-stopper`.
+- ou, no terminal, em dois passos (o primeiro busca a versão nova no GitHub; sem ele o segundo responde que já está na última versão):
+
+  ```bash
+  claude plugin marketplace update scroll-stopper
+  claude plugin update scroll-stopper@scroll-stopper
+  ```
 
 A sessão aberta continua com a versão antiga; rode `/reload-plugins` ou abra uma sessão nova. No primeiro vídeo depois da atualização, o plugin confere o ambiente e roda `ss setup` de novo: quando as dependências do motor não mudaram, ele só copia o código novo (alguns KB) e reaproveita o que já está instalado. Versões antigas do motor saem do cache no fim.
 
