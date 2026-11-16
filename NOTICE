@@ -1,0 +1,6 @@
+Scroll Stopper — Copyright (C) 2026 Safira Mendes — AGPL-3.0.
+
+ss_lib/clips.py and the method in knowledge/cortes-de-video-longo.md adapted from SupoClip
+(https://github.com/FujiwaraChoki/supoclip), Copyright (C) 2025 Sami Hindi, AGPL-3.0.
+
+The video engine depends on Remotion, which has its own license: https://www.remotion.dev/license.

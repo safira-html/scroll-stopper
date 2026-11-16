@@ -1,0 +1,15 @@
+{
+  "$schema": "https://anthropic.com/claude-code/marketplace.schema.json",
+  "name": "scroll-stopper",
+  "description": "Marketplace do plugin Scroll Stopper (Para o Scroll).",
+  "owner": {
+    "name": "Safira Mendes"
+  },
+  "plugins": [
+    {
+      "name": "scroll-stopper",
+      "source": "./",
+      "description": "Cria vídeos verticais para anúncios e redes sociais por três caminhos: apresentador falando, anúncio em motion com narração e cortes de vídeos longos."
+    }
+  ]
+}

@@ -1,0 +1,9 @@
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["."]
+# e2e roda o CLI de verdade (Whisper, Remotion) e leva varios minutos: fica fora do `pytest` padrao.
+# Para rodar: pytest -m e2e
+addopts = "-m 'not e2e'"
+markers = [
+    "e2e: smoke de ponta a ponta pelo CLI real (lento; rode com -m e2e)",
+]

@@ -1,0 +1,80 @@
+{
+  "slug": "minha-marca",
+  "name": "Minha Marca",
+  "language": "pt-BR",
+  "sources": {
+    "designSystem": "(onde estão os tokens: arquivo, Figma, site)",
+    "site": "(URL)",
+    "notes": "(data e quem conferiu)"
+  },
+  "colors": {
+    "accent": "#FF6A3D",
+    "accentInk": "#2A0E04",
+    "accentDisplay": "#C4441C",
+    "strike": "#C2323B",
+    "danger": "#FF5A64",
+    "light": {
+      "bg": "#F6F5F3",
+      "surface": "#FFFFFF",
+      "surfaceAlt": "#EFEDEA",
+      "text": "#181715",
+      "muted": "#5E5B57",
+      "subtle": "#77736E",
+      "line": "#E2DFDA",
+      "corner": "#D9D5CF",
+      "gridAlpha": 0.2
+    },
+    "dark": {
+      "bg": "#171614",
+      "surface": "#23211F",
+      "surfaceAlt": "#302D2A",
+      "text": "#F6F5F3",
+      "muted": "#B5B0AA",
+      "subtle": "#8F8A84",
+      "line": "rgba(255,255,255,.08)",
+      "corner": "#2B2926",
+      "gridAlpha": 0.14
+    }
+  },
+  "fonts": {
+    "sans": "Inter",
+    "mono": "JetBrains Mono",
+    "display": "Fraunces"
+  },
+  "logos": {
+    "header": "logo.svg"
+  },
+  "captions": {
+    "keepTogether": [
+      "Minha Marca",
+      "Saiba Mais"
+    ],
+    "weights": [
+      300,
+      700
+    ]
+  },
+  "endCard": {
+    "kicker": "FRASE CURTA",
+    "title": [
+      "Nome do",
+      "Produto"
+    ],
+    "tiles": [],
+    "chips": [
+      "Benefício 1",
+      "Benefício 2"
+    ],
+    "price": "(preço exatamente como na página)",
+    "priceSub": "(garantia)",
+    "cta": "Toque em Saiba Mais",
+    "seconds": 11,
+    "backdrop": "none"
+  },
+  "voice": {
+    "provider": "",
+    "model": "",
+    "voices": [],
+    "notes": "(vozes escolhidas na rodada de amostras)"
+  }
+}

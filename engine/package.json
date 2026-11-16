@@ -1,0 +1,23 @@
+{
+  "name": "scroll-stopper-engine",
+  "version": "1.0.0",
+  "description": "Remotion engine for 9:16 motion ads with narration and karaoke captions",
+  "scripts": {
+    "brand": "node scripts/use-brand.mjs",
+    "studio": "remotion studio src/index.ts --port=3000",
+    "typecheck": "tsc -p .",
+    "still:template": "remotion still src/index.ts Template-m out/template-hook.png --frame=20 --scale=0.4 && remotion still src/index.ts Template-m out/template-product.png --frame=300 --scale=0.4 && remotion still src/index.ts Template-m out/template-endcard.png --frame=620 --scale=0.4",
+    "render": "remotion render src/index.ts"
+  },
+  "license": "AGPL-3.0",
+  "dependencies": {
+    "@remotion/cli": "^4.0.540",
+    "@remotion/google-fonts": "^4.0.540",
+    "@types/react": "^19.3.0",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "remotion": "^4.0.540",
+    "typescript": "^7.0.2"
+  },
+  "private": true
+}

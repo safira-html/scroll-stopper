@@ -1,0 +1,68 @@
+#!/usr/bin/env bash
+# Dispatcher do Scroll Stopper: `ss setup` roda com o python3 do sistema,
+# os demais comandos rodam `python -m ss_lib.<cmd>` dentro do venv do plugin.
+set -euo pipefail
+
+# Resolve o proprio caminho (inclusive via symlink) para funcionar de qualquer cwd.
+SOURCE="${BASH_SOURCE[0]}"
+while [ -L "$SOURCE" ]; do
+  DIR="$(cd -P "$(dirname "$SOURCE")" && pwd)"
+  SOURCE="$(readlink "$SOURCE")"
+  [[ "$SOURCE" != /* ]] && SOURCE="$DIR/$SOURCE"
+done
+ROOT="$(cd -P "$(dirname "$SOURCE")/.." && pwd)"
+
+export PATH="$HOME/.local/bin:/opt/homebrew/bin:/usr/local/bin:$PATH"
+export PYTHONPATH="$ROOT${PYTHONPATH:+:$PYTHONPATH}"
+export SS_PLUGIN_ROOT="$ROOT"
+
+if [ $# -lt 1 ] || [ "$1" = "-h" ] || [ "$1" = "--help" ]; then
+  echo "Uso: ss <comando> [argumentos]" >&2
+  echo "  ss setup [--check] [--json]   prepara ou confere o ambiente" >&2
+  echo "  ss workspace init|brands      cria a pasta de trabalho / lista as marcas" >&2
+  echo "  ss workspace learn \"<texto>\" [--source <skill>]   anota um aprendizado local" >&2
+  echo "  ss brand extract <url|arquivo>   extrai cores e fontes de um site" >&2
+  echo "  ss brand use <slug|pasta> --project <id>   ativa a marca no engine do projeto" >&2
+  echo "  ss transcribe <video> <id>     transcreve com tempo por palavra" >&2
+  echo "  ss cut <projetos/<id>/corte.json>   corta o video gravado" >&2
+  echo "  ss prepare-presenter <cut.mp4> <id> [--speed auto|1.0|1.2]" >&2
+  echo "  ss kit add-music <arquivo> <light|dark>   adiciona trilha de fundo (-20 LUFS)" >&2
+  echo "  ss kit add-sfx <arquivo> [--name <nome>]   adiciona efeito sonoro (pico -3 dBFS)" >&2
+  echo "  ss kit status                  mostra o que existe no kit de som" >&2
+  echo "  ss align <raw> <key> --project <id> [--script f.txt]   alinha a narracao a palavras" >&2
+  echo "  ss download <link> <id>       baixa o video longo (ate 1080p) para o projeto" >&2
+  echo "  ss clips windows <id>          divide a transcricao em janelas de 12 min" >&2
+  echo "  ss clips validate <id> [--preset short|medium|long|auto]   valida candidatos.json" >&2
+  echo "  ss clips render <id> --ids 1,3 [--style simples|dinamico] [--brand <slug|pasta>] [--logo] [--dest <pasta>]" >&2
+  echo "  ss render <id> <composicao> --dest <pasta> --name <nome> [--lufs -15] [--brand <slug|pasta>]   render final (-14 LUFS apresentador/clipe, -15 motion)" >&2
+  echo "  ss draft <id> <composicao> [--brand <slug|pasta>]   rascunho em meia escala + folha de contatos" >&2
+  echo "  ss finalize <video> --dest <pasta> --name <nome> [--lufs -14]   entrega um video pronto (ex.: so o corte) com volume normalizado" >&2
+  echo "  ss probe <arquivo>             duracao, imagem, som e resolucao (JSON)" >&2
+  echo "  ss qa <video> [--lufs -15]     confere 1080x1920, 30 fps, loudness e pico" >&2
+  exit 2
+fi
+
+CMD="$1"
+shift
+
+# so os comandos da ajuda acima; os demais modulos de ss_lib sao internos.
+# "-" vira "_" no nome do modulo (prepare-presenter -> prepare_presenter)
+case "$CMD" in
+  setup|workspace|brand|transcribe|cut|prepare-presenter|kit|align|download|clips|render|draft|finalize|probe|qa) ;;
+  *)
+    echo "[!!] Comando desconhecido: $CMD (veja: ss --help)" >&2
+    exit 2
+    ;;
+esac
+MODULE="${CMD//-/_}"
+
+if [ "$CMD" = "setup" ]; then
+  exec python3 -m ss_lib.setup "$@"
+fi
+
+VENV_PY="$HOME/.cache/scroll-stopper/venv/bin/python"
+if [ ! -x "$VENV_PY" ]; then
+  echo "[!!] Ambiente ainda nao preparado. Rode primeiro: $ROOT/bin/ss setup" >&2
+  exit 1
+fi
+exec "$VENV_PY" -m "ss_lib.$MODULE" "$@"

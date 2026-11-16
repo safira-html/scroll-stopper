@@ -1,2 +1,15 @@
 docs/superpowers/
 .superpowers/
+node_modules/
+.venv*/
+__pycache__/
+.pytest_cache/
+*.mp4
+*.mov
+*.wav
+*.mp3
+.scroll-stopper/
+out/
+# midia e assets de marca do engine sao gerados por projeto (ss_lib.engine.prepare)
+engine/public/*
+!engine/public/.gitkeep

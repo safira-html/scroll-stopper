@@ -1,0 +1,9 @@
+:root {
+  --accent: #FF6A3D;
+  --bg: #101820;
+  --text-color: #F5F5F5;
+  --wp--preset--color--vivid-red: #cf2e2e;
+  --wp--preset--font-size--large: 36px;
+}
+body { background: var(--bg); color: var(--text-color); font-family: "Inter", sans-serif; }
+.cta { background: var(--accent); color: #101820; font-family: "Inter", sans-serif; }
